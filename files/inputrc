@@ -1,0 +1,5 @@
+set show-all-if-ambiguous on
+set completion-ignore-case On
+set colored-stats on
+set skip-completed-text on
+set page-completions off

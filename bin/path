@@ -1,0 +1,75 @@
+#! /usr/bin/env python
+
+import sys
+from subprocess import call
+import argparse
+import os
+
+def run(a):
+    call(a.split())
+
+def echo(string):
+    run('echo -e '+str(string))
+
+def usage():
+    echo('help')
+
+def out():
+    path = os.environ['PATH']
+    path = path.replace(':', '\\n')
+    echo(path)
+
+def add(folder):
+    if os.path.isdir(folder):
+        echo('add ' + folder)
+    else:
+        echo('That directory does not exist')
+
+def remove():
+    echo('remove')
+
+def dryAdd():
+    echo('dryAdd')
+
+def dryRemove():
+    echo('dryRemove')
+
+path = os.environ['PATH']
+
+cliargs = sys.argv[1:]
+
+#echo(cliargs)
+
+if cliargs:
+    if cliargs[0]=='-p':
+        out()
+    elif cliargs[0]=='-a':
+        if len(cliargs)==2:
+            add(cliargs[1])
+        else:
+            echo('The "-a" option requires exactly one argument')
+    elif cliargs[0]=='-r':
+        remove()
+    elif cliargs[0]=='-na' or cliargs[0]=='-an':
+        dryAdd()
+    elif cliargs[0]=='-nr' or cliargs[0]=='-rn':
+        dryRemove()
+    else:
+        usage()
+else:
+    usage()
+
+"""
+args = argparse.ArgumentParser()
+args.add_argument('-a', '--add')
+args.add_argument('-r', '--remove')
+#args.add_argument('-h', '--help')
+args.add_argument('-p', '--print', dest='action', action='store_const', const=out)
+args.add_argument('-n', '--dry-run')
+args.add_argument('-e', '--expand')
+args.add_argument('-f', '--file')
+args.add_argument('-c', '--clean')
+args.add_argument('-t', '--touch')
+#args.add_argument('-t', '--touch')
+args.parse_args(sys.argv[1:])
+"""
