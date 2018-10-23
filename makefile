@@ -7,3 +7,5 @@ install:
 	echo . ~/dotfiles/files/aliases >> ~/.bashrc
 	echo . ~/dotfiles/files/shopt >> ~/.bashrc
 	. ~/.bashrc
+	echo $include ~/dotfiles/files/inputrc >> ~/.inputrc
+	. ~/.inputrc
