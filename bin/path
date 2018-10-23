@@ -15,13 +15,12 @@ def usage():
     echo('help')
 
 def out():
-    path = os.environ['PATH']
-    path = path.replace(':', '\\n')
-    echo(path)
+    echo('\\n'.join(path))
 
 def add(folder):
     if os.path.isdir(folder):
         echo('add ' + folder)
+
     else:
         echo('That directory does not exist')
 
@@ -34,7 +33,7 @@ def dryAdd():
 def dryRemove():
     echo('dryRemove')
 
-path = os.environ['PATH']
+path = os.environ['PATH'].split(':')
 
 cliargs = sys.argv[1:]
 

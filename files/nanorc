@@ -1,1 +1,2 @@
 include ~dotfiles/files/ALL.nanorc
+set tabsize 4
