@@ -21,6 +21,7 @@ else:
 	print "git clone https://github.com/TomW1605/dotfiles.git"
 	run("git clone https://github.com/TomW1605/dotfiles.git")
 	os.chdir(home+"/dotfiles")
+	run("git update-index --assume-unchanged source/personal.sh")
 
 for dotFile in os.listdir(home+"/dotfiles/copy"):
 	if dotFile == ".DS_Store":
