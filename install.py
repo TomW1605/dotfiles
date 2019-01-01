@@ -25,7 +25,7 @@ else:
 for dotFile in os.listdir(home+"/dotfiles/copy"):
 	if dotFile == ".DS_Store":
 		continue
-	run("sed -i '' 's/dotfiles\/files/dotfiles\/source/g' "+home+"/"+dotFile)
+	#run("sed -i '' 's/dotfiles\/files/dotfiles\/source/g' "+home+"/"+dotFile)
 	#print(dotFile)
 	newFile = open(home+"/dotfiles/copy/"+dotFile).read()
 	oldFile = open(home+"/"+dotFile, "a+")
