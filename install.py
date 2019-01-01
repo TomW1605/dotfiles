@@ -25,10 +25,26 @@ else:
 
 for dotFile in os.listdir(home+"/dotfiles/copy"):
 	if dotFile == ".DS_Store":
+		run("rm "+home+"/dotfiles/copy/"+dotFile)
 		continue
-	#run("sed -i '' 's/dotfiles\/files/dotfiles\/source/g' "+home+"/"+dotFile)
-	#print(dotFile)
-	newFile = open(home+"/dotfiles/copy/"+dotFile).read()
+	newFile = open(home+"/dotfiles/copy/"+dotFile)
 	oldFile = open(home+"/"+dotFile, "a+")
-	if newFile not in oldFile.read():
-		oldFile.write("\n"+newFile)
+	oldFileText = open(home+"/"+dotFile, "r").read()
+	if oldFileText != '':
+		oldFile.write("\n")
+	for line in newFile:
+		if line not in oldFileText:
+			oldFile.write(line)
+	newFile.close()
+	oldFile.close()
+
+for linkFile in os.listdir(home+"/dotfiles/link"):
+	if linkFile == ".DS_Store":
+		run("rm "+home+"/dotfiles/link/"+linkFile)
+		continue
+	if os.path.islink(home+"/"+linkFile):
+		continue
+	elif os.path.isfile(home+"/"+linkFile):
+		print linkFile+" already exists in your ho,me directory. please copy the contents of "+home+"/dotfiles/link/"+linkFile+" manually"
+	else:
+		os.symlink(home+"/dotfiles/link/"+linkFile, home+"/"+linkFile)
