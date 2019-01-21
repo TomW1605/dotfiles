@@ -47,7 +47,7 @@ alias cc='cco'
 
 alias nano='nanoc'
 
-alias dot='cd ~/dotfiles/source/'
+alias dot='cd ~/dotfiles/'
 alias aliases='vim ~/dotfiles/source/aliases.sh; . ~/dotfiles/source/aliases.sh'
 alias exports='vim ~/dotfiles/source/exports.sh; . ~/dotfiles/source/exports.sh'
 alias inputrc='vim ~/dotfiles/source/inputrc.sh; . ~/dotfiles/source/inputrc.sh'
