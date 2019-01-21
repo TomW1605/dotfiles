@@ -60,3 +60,7 @@ alias junit='java -ea org.junit.runner.JUnitCore'
 alias subsync='subshift sync'
 
 alias dir='pwd'
+
+#easaly stop her netflix playing
+alias pause='cliclick kp:space'
+alias mute='osascript -e "set Volume 0"'
