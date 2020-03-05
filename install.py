@@ -45,6 +45,6 @@ for linkFile in os.listdir(home+"/dotfiles/link"):
 	if os.path.islink(home+"/"+linkFile):
 		continue
 	elif os.path.isfile(home+"/"+linkFile):
-		print linkFile+" already exists in your ho,me directory. please copy the contents of "+home+"/dotfiles/link/"+linkFile+" manually"
+		print linkFile+" already exists in your home directory. please copy the contents of "+home+"/dotfiles/link/"+linkFile+" manually"
 	else:
 		os.symlink(home+"/dotfiles/link/"+linkFile, home+"/"+linkFile)
