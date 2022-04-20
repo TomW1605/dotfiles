@@ -40,10 +40,19 @@ nanoc() {
 
 #print the local and global ip adress
 ip() {
-	echo "Local: `ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`"
-	echo "Global: `curl http://ipecho.net/plain 2>/dev/null`"
+	command ip $@
+	#echo "Local: `ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`"
+	#echo "Global: `curl http://ipecho.net/plain 2>/dev/null`"
 }
 
 volume() {
     command osascript -e "set Volume $@"
+}
+
+hideuser() {
+	export PS1=$PS1_NO_USER
+}
+
+showuser() {
+	export PS1=$PS1_USER
 }

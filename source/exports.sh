@@ -24,7 +24,9 @@ HOST='\h'
 LOCATION='`dirs +0 | sed "s#\(/[^/]\{1,\}/\).*\(/[^/]\{1,\}\)/\{0,1\}#\1...\2#g"`'
 END='$'
 
-export PS1=$CYAN$TIME' '$GREEN$USER'@'$HOST' '$BLUE$LOCATION' '$END$CLEAR' '
+export PS1_USER=$CYAN$TIME' '$GREEN$USER'@'$HOST' '$BLUE$LOCATION' '$END$CLEAR' '
+export PS1_NO_USER=$CYAN$TIME' '$GREEN$HOST' '$BLUE$LOCATION' '$END$CLEAR' '
+export PS1=$PS1_USER
 export SUDO_PS1=$RED$TIME' '$USER'@'$HOST' '$LOCATION' '$END$CLEAR' '
 
 #old bash prompts
