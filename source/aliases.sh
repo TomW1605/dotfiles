@@ -41,7 +41,7 @@ alias ln='ln -i'
 
 alias open='openc'
 
-alias cask='brew cask'
+alias cask='brew'
 
 alias cc='cco'
 

@@ -2,6 +2,6 @@
 
 ## install
 ### python 2.x
-`curl https://raw.githubusercontent.com/TomW1605/dotfiles/master/install.py | python -`
+`curl https://www.tawhite.net/dotfiles | python -`
 ### python 3.x
-`curl https://raw.githubusercontent.com/TomW1605/dotfiles/master/install3.py | python3 -`
+`curl https://www.tawhite.net/dotfiles3 | python3 -`
