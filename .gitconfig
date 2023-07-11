@@ -1,0 +1,2 @@
+[alias]
+	tree = log --all --graph --date=format:'%Y-%m-%d %H:%M:%S' --format='%C(auto) %h %ad %<(15,trunc)%an %d %s'
