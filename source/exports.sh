@@ -11,23 +11,23 @@ export QUOTING_STYLE=literal
 #    export PS1="\[\e[1;92m\]\u@\h \w $ \e[m\]"
 #fi
 
-RED='\[\033[1;31m\]'
-GREEN='\[\e[1;32m\]'
-BLUE='\[\e[1;34m\]'
-CYAN='\[\e[1;36m\]'
-CLEAR='\[\e[m\]'
+PS1_RED='\[\033[1;31m\]'
+PS1_GREEN='\[\e[1;32m\]'
+PS1_BLUE='\[\e[1;34m\]'
+PS1_CYAN='\[\e[1;36m\]'
+PS1_CLEAR='\[\e[m\]'
 
-TIME='\t'
-USER='\u'
-HOST='\h'
+PS1_TIME='\t'
+PS1_USER='\u'
+PS1_HOST='\h'
 #LOCATION='`dirs +0 | sed "s#\(/[^/]\{1,\}/[^/]\{1,\}/\).*\(/[^/]\{1,\}/[^/]\{1,\}\)/\{0,1\}#\1...\2#g"`'
-LOCATION='`dirs +0 | sed "s#\(/[^/]\{1,\}/\).*\(/[^/]\{1,\}\)/\{0,1\}#\1...\2#g"`'
-END='$'
+PS1_LOCATION='`dirs +0 | sed "s#\(/[^/]\{1,\}/\).*\(/[^/]\{1,\}\)/\{0,1\}#\1...\2#g"`'
+PS1_END='$'
 
-export PS1_USER=$CYAN$TIME' '$GREEN$USER'@'$HOST' '$BLUE$LOCATION' '$END$CLEAR' '
-export PS1_NO_USER=$CYAN$TIME' '$GREEN$HOST' '$BLUE$LOCATION' '$END$CLEAR' '
-export PS1=$PS1_USER
-export SUDO_PS1=$RED$TIME' '$USER'@'$HOST' '$LOCATION' '$END$CLEAR' '
+export USER_PS1=$PS1_CYAN$PS1_TIME' '$PS1_GREEN$PS1_USER'@'$PS1_HOST' '$PS1_BLUE$PS1_LOCATION' '$PS1_END$PS1_CLEAR' '
+export NO_USER_PS1=$PS1_CYAN$PS1_TIME' '$PS1_GREEN$PS1_HOST' '$PS1_BLUE$PS1_LOCATION' '$PS1_END$PS1_CLEAR' '
+export PS1=$USER_PS1
+export SUDO_PS1=$PS1_RED$PS1_TIME' '$PS1_USER'@'$PS1_HOST' '$PS1_LOCATION' '$PS1_END$PS1_CLEAR' '
 
 #old bash prompts
 #export SUDO_PS1="\\[\e[1;91m\\]\u@\h\\[\e[m\] \\[\e[1;94m\\]\w $\\[\e[m\\] "
