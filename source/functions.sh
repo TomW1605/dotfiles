@@ -56,3 +56,9 @@ hideuser() {
 showuser() {
 	export PS1=$USER_PS1
 }
+
+swap() {
+	mv "$1" "$1.tmp"
+	mv "$2" "$1"
+	mv "$1.tmp" "$2"
+}
