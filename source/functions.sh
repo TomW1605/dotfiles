@@ -50,9 +50,9 @@ volume() {
 }
 
 hideuser() {
-	export PS1=$PS1_NO_USER
+	export PS1=$NO_USER_PS1
 }
 
 showuser() {
-	export PS1=$PS1_USER
+	export PS1=$USER_PS1
 }
