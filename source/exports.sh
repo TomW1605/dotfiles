@@ -24,10 +24,23 @@ PS1_HOST='\h'
 PS1_LOCATION='`dirs +0 | sed "s#\(/[^/]\{1,\}/\).*\(/[^/]\{1,\}\)/\{0,1\}#\1...\2#g"`'
 PS1_END='$'
 
-export USER_PS1=$PS1_CYAN$PS1_TIME' '$PS1_GREEN$PS1_USER'@'$PS1_HOST' '$PS1_BLUE$PS1_LOCATION' '$PS1_END$PS1_CLEAR' '
-export NO_USER_PS1=$PS1_CYAN$PS1_TIME' '$PS1_GREEN$PS1_HOST' '$PS1_BLUE$PS1_LOCATION' '$PS1_END$PS1_CLEAR' '
+#IP=$(hostname -I | awk '{print $1}')
+#TAB_TITLE='\e]0;'$PS1_HOST' ('$IP')\a'
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    TAB_TITLE='\[\e]0;\u@\h: \w\a\]'
+    ;;
+*)
+	TAB_TITLE=''
+    ;;
+esac
+
+export USER_PS1=$TAB_TITLE$PS1_CYAN$PS1_TIME' '$PS1_GREEN$PS1_USER'@'$PS1_HOST' '$PS1_BLUE$PS1_LOCATION'`__git_ps1` '$PS1_END$PS1_CLEAR' '
+export NO_USER_PS1=$TAB_TITLE$PS1_CYAN$PS1_TIME' '$PS1_GREEN$PS1_HOST' '$PS1_BLUE$PS1_LOCATION'`__git_ps1` '$PS1_END$PS1_CLEAR' '
 export PS1=$USER_PS1
-export SUDO_PS1=$PS1_RED$PS1_TIME' '$PS1_USER'@'$PS1_HOST' '$PS1_LOCATION' '$PS1_END$PS1_CLEAR' '
+export SUDO_PS1=$TAB_TITLE$PS1_RED$PS1_TIME' '$PS1_USER'@'$PS1_HOST' '$PS1_LOCATION' '$PS1_END$PS1_CLEAR' '
 
 #old bash prompts
 #export SUDO_PS1="\\[\e[1;91m\\]\u@\h\\[\e[m\] \\[\e[1;94m\\]\w $\\[\e[m\\] "
