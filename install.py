@@ -13,6 +13,9 @@ home = os.getenv("HOME")
 
 os.chdir(home)
 
+if type(run("git")) == subprocess.CalledProcessError:
+	run("sudo apt-get install git -y")
+
 if os.path.isdir(home+"/dotfiles/.git"):
 	os.chdir(home+"/dotfiles")
 	print "git pull"
