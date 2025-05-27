@@ -63,7 +63,3 @@ alias dir='pwd'
 
 #create parents if dont exist
 alias mkdir='mkdir -p'
-
-#easaly stop her netflix playing
-alias pause='cliclick kp:space'
-alias mute='osascript -e "set Volume 0"'
