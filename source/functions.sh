@@ -62,3 +62,13 @@ swap() {
 	mv "$2" "$1"
 	mv "$1.tmp" "$2"
 }
+
+mkalias() {
+	echo "alias $1='$2'" >> ~/dotfiles/source/personal.sh
+	. ~/dotfiles/source/personal.sh
+}
+
+ssh_new() {
+	ssh-copy-id $1 &>/dev/null
+	ssh $1
+}
