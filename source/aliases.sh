@@ -63,3 +63,5 @@ alias dir='pwd'
 
 #create parents if dont exist
 alias mkdir='mkdir -p'
+
+alias compress_image='sudo pishrink -avZ'
