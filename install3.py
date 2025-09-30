@@ -21,8 +21,8 @@ if os.path.isdir(home+"/dotfiles/.git"):
 	print("git pull")
 	run("git pull")
 else:
-	print("git clone git@github.com:TomW1605/dotfiles.git")
-	run("git clone git@github.com:TomW1605/dotfiles.git")
+	print("git clone https://github.com/TomW1605/dotfiles.git")
+	run("git clone https://github.com/TomW1605/dotfiles.git")
 	os.chdir(home+"/dotfiles")
 	run("git update-index --assume-unchanged source/personal.sh")
 
