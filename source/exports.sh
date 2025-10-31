@@ -47,4 +47,5 @@ export SUDO_PS1=$TAB_TITLE$PS1_RED$PS1_TIME' '$PS1_USER'@'$PS1_HOST' '$PS1_LOCAT
 #export PS1="\\[\e[1;92m\\]\u@\h\\[\e[m\] \\[\e[1;94m\\]\w $\\[\e[m\\] "
 
 export PROMPT_COMMAND='history -a ; $PROMPT_COMMAND'
-
+export HISTSIZE=10000
+export HISTFILESIZE=20000
